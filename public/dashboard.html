@@ -1,0 +1,131 @@
+<?php
+require_once '../api/connection.php';
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Sistema de Extintores</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="images/logo.png" alt="Logo Unesc" class="logo">
+      <div class="header-text">
+        <h1>Sistema de Extintores</h1>
+        <span>Bloco B</span>
+      </div>
+    </div>
+    <button id="logoutButton"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
+  </header>
+
+  <main>
+    <section class="card-total">
+      <h2><i class="fa-solid fa-fire"></i> Total de Extintores</h2>
+      <p class="total-num">0</p>
+      <p class="subtext">Registrados no sistema</p>
+    </section>
+
+    <section class="extintores">
+      <button class="btn-icon"><i class="fa-solid fa-fire-extinguisher"></i> Extintores</button>
+      <div class="lista">
+        <h3>Lista de Extintores</h3>
+        <p>Visualize e gerencie todos os extintores do Bloco B</p>
+
+        <div class="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" placeholder="Buscar por ID, substância ou função...">
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Carga (kg)</th>
+              <th>Capacidade</th>
+              <th>Localização</th>
+              <th>Substância</th>
+              <th>Função</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="6" class="vazio">Nenhum extintor encontrado</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Sistema de Extintores | Desenvolvido por Unesc</p>
+  </footer>
+
+  <!-- Logout -->
+  <script>
+    document.getElementById("logoutButton").addEventListener("click", () => {
+      fetch("../api/logout.php")
+        .then(() => window.location.href = "login.html")
+        .catch(() => alert("Erro ao encerrar sessão."));
+    });
+  </script>
+
+  <!-- Script principal: carregar extintores -->
+  <script>
+    async function carregarExtintores() {
+      try {
+        const response = await fetch("../api/CRUD/read_extintor.php");
+        const result = await response.json();
+
+        const totalElement = document.querySelector(".total-num");
+        const tbody = document.querySelector("tbody");
+
+        if (!result.success || !result.extintores || result.extintores.length === 0) {
+          totalElement.textContent = "0";
+          tbody.innerHTML = `<tr><td colspan="6" class="vazio">Nenhum extintor encontrado</td></tr>`;
+          return;
+        }
+
+        totalElement.textContent = result.extintores.length;
+        tbody.innerHTML = "";
+
+        result.extintores.forEach((ext) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${ext.id_extintor}</td>
+            <td>${ext.carga}</td>
+            <td>${ext.capacidade_extintora}</td>
+            <td>${ext.piso} - ${ext.corredor}</td>
+            <td>${ext.nome_substancia}</td>
+            <td>${ext.tipo_funcao}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        // Filtro de busca
+        const searchInput = document.getElementById("searchInput");
+        searchInput.addEventListener("input", () => {
+          const term = searchInput.value.toLowerCase();
+          const linhas = tbody.querySelectorAll("tr");
+
+          linhas.forEach(tr => {
+            const texto = tr.innerText.toLowerCase();
+            tr.style.display = texto.includes(term) ? "" : "none";
+          });
+        });
+
+      } catch (error) {
+        console.error("Erro ao carregar extintores:", error);
+        document.querySelector("tbody").innerHTML = `
+          <tr><td colspan="6" class="vazio">Erro ao carregar dados</td></tr>`;
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", carregarExtintores);
+  </script>
+</body>
+</html>

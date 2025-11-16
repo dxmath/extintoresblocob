@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Sistema de Extintores</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <main class="login-container">
+    <div class="login-card">
+      <img src="images/logo.png" alt="Logo UNESC" class="logo">
+      <h1>Sistema de Extintores</h1>
+      <p class="subtitle">Faça login na sua conta</p>
+
+      <form id="loginForm" method="POST" action="../api/login.php">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+
+        <label for="password">Senha</label>
+        <input type="password" id="password" name="password" placeholder="********" required>
+
+        <div class="forgot-password">
+          <a href="reset_password.html">Esqueci minha senha</a>
+        </div>
+
+        <button type="submit" class="btn-primary">Entrar</button>
+      </form>
+
+      <p class="register-link">
+        Ainda não tem conta? <a href="register.html">Crie uma</a>
+      </p>
+    </div>
+  </main>
+</body>
+</html>

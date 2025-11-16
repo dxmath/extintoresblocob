@@ -1,0 +1,205 @@
+/* ======================== */
+/* ESTILO GERAL */
+/* ======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #f9fafb;
+  color: #1e293b;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ======================== */
+/* TOPO */
+/* ======================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 12px 32px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 70px;
+}
+
+.header-text h1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.header-text span {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.logout {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logout:hover {
+  background: #1d4ed8;
+}
+
+/* ======================== */
+/* CARD TOTAL */
+/* ======================== */
+.card-total {
+  text-align: center;
+  background: #fff;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  padding: 24px;
+  width: 280px;
+  margin: 40px auto 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-total h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.total-num {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 8px 0;
+}
+
+.subtext {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* ======================== */
+/* LISTA DE EXTINTORES */
+/* ======================== */
+.extintores {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto 40px;
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin-bottom: 16px;
+  cursor: default;
+  font-weight: 500;
+}
+
+/* Caixa da lista */
+.lista {
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.lista h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.lista p {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+/* Busca */
+.search {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 16px;
+}
+
+.search i {
+  color: #64748b;
+}
+
+.search input {
+  border: none;
+  outline: none;
+  padding: 6px;
+  flex: 1;
+  background: transparent;
+  font-size: 0.9rem;
+}
+
+/* Tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+th {
+  color: #334155;
+  font-weight: 600;
+}
+
+.vazio {
+  text-align: center;
+  color: #94a3b8;
+  padding: 12px 0;
+}
+
+/* ======================== */
+/* RODAPÉ */
+/* ======================== */
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #475569;
+  padding: 16px;
+  background: #f9fafb;
+  border-top: 1px solid #e2e8f0;
+  margin-top: auto;
+}

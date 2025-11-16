@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /
+
+# Permitir acesso a arquivos estáticos
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirecionar para index.html se o arquivo não existir
+RewriteRule ^(.*)$ index.html [L]
+

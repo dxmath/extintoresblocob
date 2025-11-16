@@ -1,0 +1,113 @@
+<?php
+require_once '../api/connection.php';
+?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin - Sistema de Extintores</title>
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <div class="logo-area">
+      <img src="images/logo.png" alt="Logo Unesc" class="logo" />
+      <div class="title">
+        <h1>Sistema de Extintores</h1>
+        <span>Admin - Bloco B</span>
+      </div>
+    </div>
+    <button class="logout"><i class="fa-solid fa-right-from-bracket"></i> Sair</button>
+  </header>
+
+  <main>
+    <!-- CARD DE RESUMO -->
+    <section class="cards">
+      <div class="card">
+        <i class="fa-solid fa-fire-extinguisher icon"></i>
+        <div>
+          <h3>Total de Extintores</h3>
+          <p class="total-extintores">0</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-users icon"></i>
+        <div>
+          <h3>Total de Usuários</h3>
+          <p class="total-usuarios">0</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LISTAGEM DE EXTINTORES -->
+    <section class="content-box">
+      <div class="content-header">
+        <i class="fa-solid fa-fire"></i>
+        <h2>Extintores</h2>
+      </div>
+
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="searchInput" type="text" placeholder="Buscar por ID, substância ou função..." />
+      </div>
+
+      <table class="tabela-extintores">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Carga (kg)</th>
+            <th>Capacidade</th>
+            <th>Localização</th>
+            <th>Substância</th>
+            <th>Função</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="6" class="empty">Nenhum extintor encontrado</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- GERENCIAMENTO DE USUÁRIOS (LISTA) -->
+    <section class="content-box">
+      <div class="content-header">
+        <i class="fa-solid fa-user-gear"></i>
+        <h2>Usuários</h2>
+      </div>
+
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInputUsuarios" placeholder="Buscar usuários por ID, nome ou email..." />
+      </div>
+
+      <table class="tabela-usuarios">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Função</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="5" class="empty">Nenhum usuário encontrado</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Sistema de Extintores | Desenvolvido por Unesc</p>
+  </footer>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

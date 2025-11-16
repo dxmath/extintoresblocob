@@ -1,0 +1,155 @@
+/* ======== Reset ======== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to bottom right, #f9fafb, #f1f3f5);
+    color: #333;
+}
+
+/* ======== Header ======== */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 10px;
+    background: transparent;
+}
+
+.logo {
+    width: 200px;
+}
+
+/* ======== Hero Section ======== */
+.hero {
+    text-align: center;
+    padding: 60px 20px 50px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 2.7rem;
+    font-weight: 800;
+    color: #ef4444;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.05rem;
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* ======== Botões ======== */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 12px 25px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn.primary {
+    background-color: #ef4444;
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+}
+
+.btn.secondary {
+    background-color: #fff;
+    color: #111827;
+    border: 1px solid #d1d5db;
+}
+
+.btn.secondary:hover {
+    background-color: #f3f4f6;
+    transform: translateY(-2px);
+}
+
+/* ======== Cards (Features) ======== */
+.features {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    margin: 50px auto 80px;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px 25px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+    text-align: center;
+    flex: 1 1 300px;
+    transition: all 0.3s ease;
+    border: 1px solid #f1f1f1;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: #111827;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+/* ======== Rodapé ======== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    color: #6b7280;
+    font-size: 0.9rem;
+    border-top: 1px solid #eee;
+}
+
+/* ======== Responsivo ======== */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
